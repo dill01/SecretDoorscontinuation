@@ -1,0 +1,19 @@
+This plugin gives you secret doors, just like in the movies!
+
+
+Usage:
+	1. Put two blocks in front of a door.
+	2. Click one of those blocks (or the door from the other side). Tadaa, your door is open and the blocks vanished!
+	3. Close the door. The blocks are back!
+
+
+Features:
+    secret doors to your treasure room (or whatever you'd want a secret door for)
+
+
+Installation:
+	Put the SecretDoor.jar into your plugins folder. That's it.
+
+
+Changelog:
+	see CHANGELOG

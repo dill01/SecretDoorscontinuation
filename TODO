@@ -1,0 +1,9 @@
+- remind the player to close the door
+- make signs, torches etc. placeable on the blocks
+- find a good workaround for the double doors
+- preserve block data (wool color, slab type, etc)
+- restore the blocks if the door gets destroyed, or create drops for them
+- Permissions. Yes, you "convinced" me that you really want and need it. So you shall get it.
+- restrict certain block types (mostly containerblocks) to be usable as secret door only by left-clicking them
+- add configuration support, so the admin can choose which blocks can actually be used as secret doors (e.g. bookshelves)
+- possibly add LWC-support

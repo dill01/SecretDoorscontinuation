@@ -1,5 +1,6 @@
 package de.mrchick.bukkit.secretdoors;
 
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.Action;
@@ -49,7 +50,10 @@ public class SecretDoorsPlayerListener extends PlayerListener
             }
             
             if (!(door == null))
+            {
                 plugin.addDoor(door).open();
+                pie.getPlayer().sendMessage(ChatColor.RED + "Don't forget to close the door!");
+            }
         }
     }
 }

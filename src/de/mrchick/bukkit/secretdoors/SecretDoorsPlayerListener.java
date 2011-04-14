@@ -16,17 +16,39 @@ public class SecretDoorsPlayerListener extends PlayerListener
         this.plugin = plugin;
     }
     
+    private boolean isValidBlock(Block block)
+    {
+        boolean ret = true;
+        
+        if (block != null)
+            switch (block.getType())
+            {
+                case CHEST:
+                case FURNACE:
+                case DISPENSER:
+                case WORKBENCH:
+                case WOOD_PLATE:
+                case STONE_PLATE:
+                    ret = false;
+                    break;
+            }
+        else
+            ret = false;
+        
+        return ret;
+    }
+    
     @Override
     public void onPlayerInteract(PlayerInteractEvent pie)
     {
-        if (Action.LEFT_CLICK_BLOCK.equals(pie.getAction()) || Action.RIGHT_CLICK_BLOCK.equals(pie.getAction()))
+        if (Action.LEFT_CLICK_BLOCK.equals(pie.getAction()) || (isValidBlock(pie.getClickedBlock()) && Action.RIGHT_CLICK_BLOCK.equals(pie.getAction())))
         {
             Block clicked = pie.getClickedBlock();
             Block behind = clicked.getRelative(pie.getBlockFace().getOppositeFace());
             
             SecretDoor door = null;
             
-            if (Material.WOODEN_DOOR.equals(clicked.getType()))
+            if (Material.WOODEN_DOOR.equals(clicked.getType()) && !SecretDoor.isDoubleDoor(clicked))
             {
                 if (this.plugin.isSecretDoor(SecretDoor.getKeyFromBlock(clicked)))
                 {
@@ -39,7 +61,7 @@ public class SecretDoorsPlayerListener extends PlayerListener
                 }
                 
             }
-            else if (Material.WOODEN_DOOR.equals(behind.getType()))
+            else if (Material.WOODEN_DOOR.equals(behind.getType()) && !SecretDoor.isDoubleDoor(behind))
             {
                 if (this.plugin.isSecretDoor(SecretDoor.getKeyFromBlock(behind)))
                 {

@@ -1,3 +1,11 @@
+Version 0.2, Date: 2011-04-14
+Tested with: 670 & 674
+    - remind the player to close the door
+    - found a workaround for double doors. they can no longer be used as secret doors.
+    - now preserving block data (wool color, slab type, wood type, etc)
+    - closing the door when the wooden door gets destroyed. now you don't lose your blocks anymore
+    - container blocks like chest, furnace and dispenser can now only be opened with a left click, so they keep their right click functionality. DON'T(!!!) put anything into them right now, you'll lose the contents!
+
 Version 0.1, Date: 2011-04-11
 Tested with: 670
     - initial release

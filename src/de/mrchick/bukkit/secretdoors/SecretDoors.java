@@ -24,6 +24,7 @@ public class SecretDoors extends JavaPlugin
     public void onEnable()
     {
         this.getServer().getPluginManager().registerEvent(Type.PLAYER_INTERACT, new SecretDoorsPlayerListener(this), Priority.Monitor, this);
+        this.getServer().getPluginManager().registerEvent(Type.BLOCK_BREAK, new SecretDoorsBlockListener(this), Priority.Monitor, this);
         
         System.out.println(this.getDescription().getFullName() + " by MrChick enabled");
     }

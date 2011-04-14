@@ -10,6 +10,7 @@ public class SecretDoor
     private Block[]    doorblocks = new Block[2];
     private Block[]    blocks     = new Block[2];
     private Material[] materials  = new Material[2];
+    private byte[]     data       = new byte[2];
     private Direction  direction  = null;
     
     public SecretDoor(Block door, Block other, Direction direction)
@@ -33,6 +34,9 @@ public class SecretDoor
         
         this.materials[0] = this.blocks[0].getType();
         this.materials[1] = this.blocks[1].getType();
+        
+        this.data[0] = this.blocks[0].getData();
+        this.data[1] = this.blocks[1].getData();
         
         this.direction = direction;
     }
@@ -73,6 +77,18 @@ public class SecretDoor
         return state;
     }
     
+    public static boolean isDoubleDoor(Block block)
+    {
+        boolean state = false;
+        
+        Block[] blocks = { block.getRelative(BlockFace.EAST), block.getRelative(BlockFace.NORTH), block.getRelative(BlockFace.WEST), block.getRelative(BlockFace.SOUTH) };
+        for (Block b : blocks)
+            if (Material.WOODEN_DOOR.equals(b.getType()))
+                state = true;
+        
+        return state;
+    }
+    
     public Block getKey()
     {
         return this.doorblocks[0];
@@ -81,7 +97,10 @@ public class SecretDoor
     public void close()
     {
         for (int i = 0; i < 2; i++)
+        {
             this.blocks[i].setType(this.materials[i]);
+            this.blocks[i].setData(this.data[i]);
+        }
     }
     
     public void open()
@@ -96,7 +115,6 @@ public class SecretDoor
     
     public static Block getKeyFromBlock(Block block)
     {
-        
         
         Block door = null;
         

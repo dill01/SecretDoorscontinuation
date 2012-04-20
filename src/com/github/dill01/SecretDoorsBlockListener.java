@@ -12,6 +12,7 @@ public class SecretDoorsBlockListener implements Listener
         this.plugin = plugin;
     }
     
+    @EventHandler
     public void onBlockBreak(BlockBreakEvent bbe)
     {
         if(plugin.isSecretDoor(bbe.getBlock()))

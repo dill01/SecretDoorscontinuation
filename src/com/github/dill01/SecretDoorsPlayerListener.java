@@ -38,6 +38,7 @@ public class SecretDoorsPlayerListener implements Listener
         return ret;
     }
     
+    @EventHandler
     public void onPlayerInteract(PlayerInteractEvent pie)
     {
         if (Action.LEFT_CLICK_BLOCK.equals(pie.getAction()) || (isValidBlock(pie.getClickedBlock()) && Action.RIGHT_CLICK_BLOCK.equals(pie.getAction())))

@@ -1,9 +1,9 @@
-package de.mrchick.bukkit.secretdoors;
+package com.github.dill01;
 
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
-import org.bukkit.event.block.BlockListener;
-
-public class SecretDoorsBlockListener extends BlockListener
+	
+public class SecretDoorsBlockListener implements Listener
 {
     private SecretDoors plugin = null;
     
@@ -12,7 +12,6 @@ public class SecretDoorsBlockListener extends BlockListener
         this.plugin = plugin;
     }
     
-    @Override
     public void onBlockBreak(BlockBreakEvent bbe)
     {
         if(plugin.isSecretDoor(bbe.getBlock()))

@@ -1,4 +1,4 @@
-package de.mrchick.bukkit.secretdoors;
+package com.github.dill01;
 
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -49,6 +49,7 @@ public class SecretDoor
             door = (Door) block.getState().getData();
         
         return door;
+        
     }
     
     public static boolean isAdjacentDoor(Block doorBlock, BlockFace face)

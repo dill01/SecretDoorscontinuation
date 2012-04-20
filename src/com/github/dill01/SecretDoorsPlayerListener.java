@@ -1,13 +1,13 @@
-package de.mrchick.bukkit.secretdoors;
+package com.github.dill01;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerListener;
 
-public class SecretDoorsPlayerListener extends PlayerListener
+public class SecretDoorsPlayerListener implements Listener
 {
     private SecretDoors plugin = null;
     
@@ -38,7 +38,6 @@ public class SecretDoorsPlayerListener extends PlayerListener
         return ret;
     }
     
-    @Override
     public void onPlayerInteract(PlayerInteractEvent pie)
     {
         if (Action.LEFT_CLICK_BLOCK.equals(pie.getAction()) || (isValidBlock(pie.getClickedBlock()) && Action.RIGHT_CLICK_BLOCK.equals(pie.getAction())))
@@ -77,5 +76,5 @@ public class SecretDoorsPlayerListener extends PlayerListener
                 pie.getPlayer().sendMessage(ChatColor.RED + "Don't forget to close the door!");
             }
         }
-    }
-}
+    }}
+

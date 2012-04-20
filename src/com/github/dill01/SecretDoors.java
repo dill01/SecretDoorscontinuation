@@ -1,10 +1,10 @@
-package de.mrchick.bukkit.secretdoors;
+package com.github.dill01;
 
 import java.util.HashMap;
 
 import org.bukkit.block.Block;
-import org.bukkit.event.Event.Priority;
-import org.bukkit.event.Event.Type;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class SecretDoors extends JavaPlugin
@@ -17,16 +17,15 @@ public class SecretDoors extends JavaPlugin
         for(Block door : this.doors.keySet())
             this.doors.get(door).close();
             
-        System.out.println(this.getDescription().getFullName() + " by MrChick disabled");
+        System.out.println(this.getDescription().getFullName() + " by dill01 disabled");
     }
     
     @Override
-    public void onEnable()
-    {
-        this.getServer().getPluginManager().registerEvent(Type.PLAYER_INTERACT, new SecretDoorsPlayerListener(this), Priority.Monitor, this);
-        this.getServer().getPluginManager().registerEvent(Type.BLOCK_BREAK, new SecretDoorsBlockListener(this), Priority.Monitor, this);
+    @EventHandler (priority = EventPriority.MONITOR)
+    public void onEnable() {
+        getServer().getPluginManager().registerEvents(new SecretDoorsPlayerListener(this), this);
         
-        System.out.println(this.getDescription().getFullName() + " by MrChick enabled");
+        System.out.println(this.getDescription().getFullName() + " by Dill01 enabled");
     }
     
     public SecretDoor addDoor(SecretDoor door)
